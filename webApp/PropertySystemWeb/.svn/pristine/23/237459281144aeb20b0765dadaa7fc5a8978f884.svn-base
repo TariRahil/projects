@@ -1,0 +1,46 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: tarrah
+  Date: 05/25/2019
+  Time: 11:32 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/w3.css">
+    <style>
+        .w3-table td
+        {
+            text-align: right!important;
+        }
+    </style>
+</head>
+<body class="w3-light-grey">
+<div  style="direction: rtl ; padding-right: 25%">
+<form method="post" class="w3-selection w3-light-grey w3-padding " style="width: 50%;">
+<table class="w3-table w3-right-align w3-blue-gray" >
+    <tr class="w3-row w3-blue-grey">
+        <td>
+            نام کاربری:
+            <input type="text" name="txtUserName" name="name" class="w3-input w3-animate-input w3-border w3-round-large"/>
+        </td>
+    </tr>
+    <tr class="w3-row w3-blue-grey">
+        <td>
+            کلمه عبور:
+            <input type="text" name="txtPassword" class="w3-input w3-animate-input w3-border w3-round-large"/>
+        </td>
+    </tr>
+    <tr class="w3-row w3-blue-grey">
+        <td>
+            <input type="submit" value="ورود" name="btnLogin" onclick="location.href='login'" class="w3-btn w3-green w3-round-large w3-margin-bottom"/>
+            <input type="submit" value="ثبت نام"  name="btnRegister" onclick="location.href='home'" class="w3-btn w3-green w3-round-large w3-margin-bottom"/>
+        </td>
+    </tr>
+</table>
+</form>
+</div>
+</body>
+</html>

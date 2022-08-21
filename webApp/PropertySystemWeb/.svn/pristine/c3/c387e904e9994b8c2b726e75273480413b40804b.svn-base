@@ -1,0 +1,137 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="bo.Resource" %>
+
+<html class="w3-right-align">
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#btnPrevious").click(function () {
+                var currentP = $("#hdnCurrentPage").val();
+                if (currentP!=1) {
+                    currentP = parseInt(currentP) - 1;
+                    $("#hdnCurrentPage").val(currentP);
+                }
+            });
+
+            $("#btnSearch").click(function () {
+                $("#hdnButtonAction").val("search");
+            });
+
+            $("#btnNext").click(function () {
+                var currentP = $("#hdnCurrentPage").val();
+                currentP = parseInt(currentP)+1;
+                if (currentP <= $("#hdnPageCount").val()) {
+                    $("#hdnCurrentPage").val(currentP);
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<%@include file="/views/shared/navbar.jsp"%>
+
+<div class="w3-direction w3-center w3-content w3-light-grey w3-round-xxlarge w3-width-50">
+
+    <div class="w3-round-large w3-width-75  w3-center w3-content">
+
+        <div class="w3-blue-grey w3-padding ">
+                <%=messages.getString("resourceName")%>
+                <input type="text" name="txtResourceName" class="w3-input w3-round-large">
+        </div>
+
+        <div class="w3-blue-grey w3-padding">
+                <%=messages.getString("resourceOwner")%>
+                <select class="w3-select w3-round-large">
+                    <option name="resourceOwner"  value="IS"><%=messages.getString("is")%></option>
+                    <option name="resourceOwner"  value="DC"><%=messages.getString("dc")%></option>
+                    <option name="resourceOwner"  value="DP"><%=messages.getString("dp")%></option>
+                </select>
+        </div>
+
+        <div>
+            <input type="button" name="btnAdd" value="<%=messages.getString("add")%>" class="w3-btn w3-round-large w3-blue w3-margin">
+        </div>
+
+    </div>
+
+    <form method="post">
+        <div class="w3-blue-grey w3-padding w3-round-large w3-width-75 w3-center w3-content w3-margin-bottom">
+            <input type="text" placeholder="<%=messages.getString("search")%>" class="w3-input w3-round-large">
+            <input type="submit" name="btnSearch" id="btnSearch" value="<%=messages.getString("search")%>" class="w3-btn w3-round-large w3-blue w3-margin">
+        </div>
+    </form>
+
+    <form method="post">
+
+        <input type="hidden" name="hdnCurrentPage" value="${currentPageValue}" id="hdnCurrentPage">
+        <input type="hidden" name="hdnPageCount" value="${pageCountValue}"  id="hdnPageCount">
+        <input type="hidden" name="hdnButtonAction" id="hdnButtonAction">
+
+        <div  class="w3-round-xxlarge w3-width-75 w3-center w3-content">
+
+            <div id="table" class="w3-blue w3-padding w3-round-large">
+
+                <table  class="w3-table">
+                    <tr class="w3-row w3-blue-gray w3-opacity">
+                        <td>
+                            <%=messages.getString("row")%>
+                        </td>
+                        <td>
+                            <%=messages.getString("resourceName")%>
+                        </td>
+                        <td>
+                            <%=messages.getString("resourceOwner")%>
+                        </td>
+                        <td>
+                            <%=messages.getString("resourceStatus")%>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <%
+                        ArrayList<Resource> resources = (ArrayList<Resource>) request.getAttribute("resources");
+                        int recordPerPage = (int)(request.getAttribute("recordPerPage")) ;
+                        int currentPage = (int)request.getAttribute("currentPageValue");
+                        int i = (currentPage*recordPerPage-recordPerPage)+1;
+
+                        for(Resource res:resources){
+                    %>
+                            <tr class="w3-row w3-blue-gray w3-opacity">
+                        <td>
+                            <%=i%>
+                        </td>
+                        <td>
+                            <%=res.getName()%>
+                        </td>
+                        <td>
+                            <%=res.getLocation()%>
+                        </td>
+                        <td>
+                            <input name="chkStatus" type="checkbox" <%=res.getActive()==true ? "checked='checked'" : "" %>>
+                        </td>
+                        <td>
+                            <a href="#"><%=messages.getString("edit")%></a>
+                        </td>
+                    </tr>
+                    <%i++;}%>
+                </table>
+
+                <td><input type="submit" name="btnPrevious" value="<%=messages.getString("previous")%>" id="btnPrevious" class="w3-btn w3-round-large w3-blue w3-margin"/></td>
+                <td><input type="submit" name="btnNext" value="<%=messages.getString("next")%>" id="btnNext" class="w3-btn w3-round-large w3-blue w3-margin"/></td>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<%@include file="/views/shared/footer.jsp"%>
+
+</body>
+</html>

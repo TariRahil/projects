@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:sqlserver://10.10.2.100:1433;database=PropertySystem</property>
+    <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
+    <property name="connection.username">sa</property>
+    <property name="connection.password">23778</property>
+      <mapping class="bo.Reserve"/>
+      <mapping resource="bo/Reserve.hbm.xml"/>
+      <mapping class="bo.Resource"/>
+
+      <mapping resource="bo/Resource.hbm.xml"/>
+      <mapping class="bo.Role"/>
+      <mapping resource="bo/Role.hbm.xml"/>
+      <mapping class="bo.UserAccount"/>
+      <mapping resource="bo/UserAccount.hbm.xml"/>
+      <mapping class="bo.UserRole"/>
+      <mapping resource="bo/UserRole.hbm.xml"/>
+
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

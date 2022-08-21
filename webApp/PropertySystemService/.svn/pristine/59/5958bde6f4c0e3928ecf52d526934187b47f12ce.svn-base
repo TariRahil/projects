@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bo.UserAccount" table="UserAccount" schema="dbo" catalog="PropertySystem">
+        <id name="userId" column="UserId"/>
+        <property name="userName" column="UserName"/>
+        <property name="password" column="Password"/>
+        <property name="createdBy" column="CreatedBy"/>
+        <property name="creationDate" column="CreationDate"/>
+        <property name="firstName" column="FirstName"/>
+        <property name="lastName" column="LastName"/>
+        <property name="managerId" column="ManagerId"/>
+        <property name="modifiedBy" column="ModifiedBy"/>
+        <property name="modifiedDate" column="ModifiedDate"/>
+        <property name="userTypeId" column="UserTypeId"/>
+        <property name="active" column="Active"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,245 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="bo.Resource" %>
+
+<html class="w3-right-align">
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#btnPrevious").click(function () {
+                var currentP = $("#hdnCurrentPage").val();
+                if (currentP!=1) {
+                    currentP = parseInt(currentP) - 1;
+                    $("#hdnCurrentPage").val(currentP);
+                }
+            });
+
+            $("#btnNext").click(function () {
+                var currentP = $("#hdnCurrentPage").val();
+                currentP = parseInt(currentP)+1;
+                if (currentP <= $("#hdnPageCount").val()) {
+                    $("#hdnCurrentPage").val(currentP);
+                }
+            });
+
+
+            $("#btnSearch").click(function () {
+                $("#hdnButtonAction").val("search");
+            });
+
+            $("#btnAdd").click(function () {
+                alert($("#hdnEditById").val());
+                var resourceId           = $("#hdnEditById").val();
+                alert(resourceId);
+                var resourceName         = $("#txtResourceName").val();
+                var resourceOwner        = $("#txtResourceOwner").val();
+                var resourceCurrentPlace = $("#txtResourceCurrentPlace").val();
+                var floor                = $("#selectFloor").val();
+                var unitId               = $("#selectUnitId").val();
+                var status               = $("#selectStatus").val();
+
+                $.ajax({
+
+                    type: "POST",
+                    url: "ResourceServlet1",
+                    data: ({
+                        action: "addResource",
+                        resourceId: resourceId,
+                        resourceName: resourceName,
+                        resourceOwner: resourceOwner,
+                        resourceCurrentPlace: resourceCurrentPlace,
+                        floor: floor,
+                        unitId: unitId,
+                        status: status
+                    }),
+                    success: function (result) {
+
+                        $("#msg").append(result);
+                        // alert(result);
+
+                    }
+                });
+            });
+
+
+
+            $("#btnEdit").click(function () {
+              //
+                var resourceId           = $("#hdnEditById").val();
+                var resourceName         = $("#txtResourceName").val();
+                var resourceOwner        = $("#txtResourceOwner").val();
+                var resourceCurrentPlace = $("#txtResourceCurrentPlace").val();
+                var floor                = $("#selectFloor").val();
+                var unitId               = $("#selectUnitId").val();
+                var status               = $("#selectStatus").val();
+
+                $.ajax({
+
+                    type: "POST",
+                    url: "ResourceServlet1",
+                    data: ({
+                        action: "editResource",
+                        resourceId: resourceId,
+                        resourceName: resourceName,
+                        resourceOwner: resourceOwner,
+                        resourceCurrentPlace: resourceCurrentPlace,
+                        floor: floor,
+                        unitId: unitId,
+                        status: status
+                    }),
+                    success: function (result) {
+
+                        $("#msg").append(result);
+                       // alert(result);
+
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+<%@include file="/views/shared/navbar.jsp"%>
+<%--
+<form >
+--%>
+
+<div class="w3-direction w3-center w3-content w3-light-grey w3-round-xxlarge w3-width-50">
+
+    <div class="w3-round-large w3-width-75  w3-center w3-content">
+
+        <div id = "msg"></div>
+
+        <div class="w3-blue-grey w3-padding w3-round-large w3-center w3-content w3-margin-bottom">
+            <input type="text" name="txtResourceName" id="txtResourceName" placeholder="<%=messages.getString("resourceName")%>" class="w3-round-large">
+            <input type="text" name="txtResourceOwner" id="txtResourceOwner" placeholder="<%=messages.getString("resourceOwner")%>" class="w3-round-large">
+            <input type="text" name="txtResourceCurrentPlace" id="txtResourceCurrentPlace" placeholder="<%=messages.getString("resourceCurrentPlace")%>" class="w3-round-large">
+            <select class="w3-round-large" id="selectFloor">
+                <option name="floor"  value="Title"><%=messages.getString("selectFloor")%></option>
+                <option name="floor"  value="1">1</option>
+                <option name="floor"  value="2">2</option>
+                <option name="floor"  value="3">3</option>
+                <option name="floor"  value="4">4</option>
+                <option name="floor"  value="5">5</option>
+                <option name="floor"  value="6">6</option>
+                <option name="floor"  value="7">7</option>
+                <option name="floor"  value="8">8</option>
+            </select>
+            <select class="w3-round-large" id="selectUnitId">
+                <option name="resourceOwner"  value="Title"><%=messages.getString("selectUnitId")%></option>
+                <option name="resourceOwner"  value="2"><%=messages.getString("is")%></option>
+                <option name="resourceOwner"  value="1"><%=messages.getString("dc")%></option>
+                <option name="resourceOwner"  value="0"><%=messages.getString("dp")%></option>
+            </select>
+            <select class="w3-round-large" id="selectStatus">
+                <option name="status"  value="-1"><%=messages.getString("selectStatus")%></option>
+                <option name="status"  value="1"><%=messages.getString("active")%></option>
+                <option name="status"  value="0"><%=messages.getString("deActive")%></option>
+            </select>
+        </BR>
+            <input type="button" name="btnAdd" id="btnAdd" value="<%=messages.getString("add")%>" class="w3-btn w3-round-large w3-blue w3-margin">
+            <input type="button" name="btnEdit" id="btnEdit" value="<%=messages.getString("edit")%>" class="w3-btn w3-round-large w3-blue w3-margin">
+        </div>
+
+        <div>
+        </div>
+
+    </div>
+
+<%--
+    <form method="post">
+        <div class="w3-blue-grey w3-padding w3-round-large w3-width-75 w3-center w3-content w3-margin-bottom">
+            <input type="text" name = "resourceName" placeholder="<%=messages.getString("resourceName")%>" class="w3-round-large">
+            <input type="text" name="resourceOwner" placeholder="<%=messages.getString("resourceOwner")%>" class="w3-round-large">
+        </BR>
+            <input type="checkbox" value="active" name="active"><%=messages.getString("active")%>
+            <input type="checkbox" value="deActive" name="deActive"><%=messages.getString("deActive")%>
+        <BR/>
+            <input type="submit" name="btnSearch" id="btnSearch" value="<%=messages.getString("search")%>" class="w3-btn w3-round-large w3-blue w3-margin">
+        </div>
+    </form>
+--%>
+
+
+        <input type="text" name="hdnCurrentPage" value="${currentPageValue}" id="hdnCurrentPage">
+        <input type="text" name="hdnPageCount" value="${pageCountValue}"  id="hdnPageCount">
+        <input type="text" name="hdnButtonAction" id="hdnButtonAction">
+        <input type="text" name="hdnEditById" id="hdnEditById" value="0">
+
+<%--
+        <div  class="w3-round-xxlarge w3-width-75 w3-center w3-content">
+
+            <div id="table" class="w3-blue w3-padding w3-round-large">
+
+                <table  class="w3-table">
+                    <tr class="w3-row w3-blue-gray w3-opacity">
+                        <td>
+                            <%=messages.getString("row")%>
+                        </td>
+                        <td>
+                            <%=messages.getString("resourceName")%>
+                        </td>
+                        <td>
+                            <%=messages.getString("resourceOwner")%>
+                        </td>
+                        <td>
+                            <%=messages.getString("resourceStatus")%>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                    <%
+                        ArrayList<Resource> resources = (ArrayList<Resource>) request.getAttribute("resources");
+                        int recordPerPage = (int)(request.getAttribute("recordPerPage")) ;
+                        int currentPage = (int)request.getAttribute("currentPageValue");
+                        int i = (currentPage*recordPerPage-recordPerPage)+1;
+
+                        for(Resource res:resources){
+                    %>
+                            <tr class="w3-row w3-blue-gray w3-opacity">
+                        <td>
+                            <%=i%>
+                        </td>
+                        <td>
+                            <%=res.getName()%>
+                        </td>
+                        <td>
+                            <%=res.getLocation()%>
+                        </td>
+                        <td>
+                            <input name="chkStatus" type="checkbox" <%=res.getActive()==true ? "checked='checked'" : "" %>>
+                        </td>
+                        <td>
+                            <input type="button" name="btnEdit" id="btnEdit<%=res.getResourceId()%>"
+                                   onclick="document.getElementById('hdnEditById').value=<%=res.getResourceId()%>;
+                                           document.getElementById('hdnButtonAction').value='editRecord';
+                                           document.getElementById('txtResourceName').value = '<%=res.getName()%>';
+                                           document.getElementById('txtResourceOwner').value = '<%=res.getOwner()%>';
+                                           document.getElementById('txtResourceCurrentPlace').value = '<%=res.getUnitId()%>'
+                                           document.getElementById('selectFloor').selectedIndex=<%=res.getFloor()%>;
+                                           document.getElementById('selectUnitId').selectedIndex=<%=res.getUnitId()%>;
+                                           document.getElementById('selectStatus').selectedIndex=<%=res.getActive().toString().equals("true") ? "1" : "2" %>;"
+                                   value="<%=messages.getString("edit")%>"/>
+                        </td>
+                    </tr>
+                    <%i++;}%>
+                </table>
+
+                <td><input type="submit" name="btnPrevious" value="<%=messages.getString("previous")%>" id="btnPrevious" class="w3-btn w3-round-large w3-blue w3-margin"/></td>
+                <td><input type="submit" name="btnNext" value="<%=messages.getString("next")%>" id="btnNext" class="w3-btn w3-round-large w3-blue w3-margin"/></td>
+            </div>
+
+        </div>
+--%>
+<%--</form>--%>
+
+</div>
+
+<%@include file="/views/shared/footer.jsp"%>
+
+</body>
+</html>

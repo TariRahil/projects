@@ -1,0 +1,20 @@
+package bl;
+
+import bo.Resource;
+import dl.ResourceDL;
+
+import java.util.List;
+
+public class ResourceBL {
+
+    ResourceDL resourceDL = new ResourceDL();
+    public List<Resource> GetAll()  {
+        List<Resource> resource = resourceDL.selectAll();
+       // ObjectWriter objectWriter = new ObjectMapper().writer().withDefaultPrettyPrinter();
+      //  ObjectMapper objectMapper = new ObjectMapper().copy();
+
+       // String json = objectWriter.writeValueAsString(resource);
+        System.out.println("RES_BL="+resource);
+        return resource;
+    }
+}

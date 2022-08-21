@@ -1,0 +1,110 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="bo.Resource" %>
+<html class="w3-right-align">
+<head>
+
+</head>
+<body>
+
+<%@include file="/views/shared/navbar.jsp"%>
+
+<div class="w3-direction w3-center w3-content w3-light-grey w3-round-xxlarge w3-width-50">
+    <div class="w3-round-large w3-width-75  w3-center w3-content">
+        <div class="w3-blue-grey w3-padding ">
+                <%=messages.getString("resourceName")%>
+                <input type="text" name="txtResourceName" class="w3-input w3-round-large">
+        </div>
+        <div class="w3-blue-grey w3-padding">
+                <%=messages.getString("resourceOwner")%>
+                <select class="w3-select w3-round-large">
+                    <option name="resourceOwner"  value="IS"><%=messages.getString("is")%></option>
+                    <option name="resourceOwner"  value="DC"><%=messages.getString("dc")%></option>
+                    <option name="resourceOwner"  value="DP"><%=messages.getString("dp")%></option>
+                </select>
+        </div>
+        <div>
+            <input type="button" name="btnAdd" value="<%=messages.getString("add")%>" class="w3-btn w3-round-large w3-blue w3-margin">
+        </div>
+    </div>
+    <div class="w3-blue-grey w3-padding w3-round-large w3-width-75 w3-center w3-content w3-margin-bottom">
+        <input type="text" placeholder="<%=messages.getString("search")%>" class="w3-input w3-round-large">
+    </div>
+    <div  class="w3-round-xxlarge w3-width-75 w3-center w3-content">
+        <div id="table" class="w3-blue w3-padding w3-round-large">
+            <table  class="w3-table">
+                <tr class="w3-row w3-blue-gray w3-opacity">
+                    <td>
+                        <%=messages.getString("row")%>
+                    </td>
+                    <td>
+                        <%=messages.getString("resourceName")%>
+                    </td>
+                    <td>
+                        <%=messages.getString("resourceOwner")%>
+                    </td>
+                    <td>
+                        <%=messages.getString("resourceStatus")%>
+                    </td>
+                    <td>
+
+                    </td>
+                </tr>
+                <%
+                    ArrayList<Resource> resources = (ArrayList<Resource>) request.getAttribute("resources");
+                    int i=1;
+                    for(Resource res:resources){
+                %>
+                        <tr class="w3-row w3-blue-gray w3-opacity">
+                    <td>
+                        <%=i%>
+                    </td>
+                    <td>
+                        <%=res.getName()%>
+                    </td>
+                    <td>
+                        <%=res.getLocation()%>
+                    </td>
+                    <td>
+                        <input name="chkStatus" type="checkbox" <%=res.getActive()==true ? "checked='checked'" : "" %>>
+                    </td>
+                    <td>
+                        <a href="#"><%=messages.getString("edit")%></a>
+                    </td>
+                </tr>
+                <%i++;}%>
+            </table>
+
+            <%--For displaying Previous link except for the 1st page --%>
+            <c:if test="${currentPage != 1}">
+                <td><a href="resource?page=${currentPage - 1}">Previous</a></td>
+            </c:if>
+
+            <%--For displaying Page numbers.
+            The when condition does not display a link for the current page--%>
+            <table border="1" cellpadding="5" cellspacing="5">
+                <tr>
+                    <%System.out.println(request.getAttribute("currentPage"));
+for (int j = 1;j<=resources.size();j++){
+    if (request.getAttribute("currentPage").equals(j)){
+        %>
+                    <td><%=j%></td>
+    <%}else{%>
+        <td><a href="resource?page=<%=j%>"><%=j%></a></td>
+   <% }
+}%>
+
+
+                </tr>
+            </table>
+
+            <%--For displaying Next link --%>
+            <c:if test="${currentPage lt noOfPages}">
+                <td><a href="resource?page=${currentPage + 1}">Next</a></td>
+            </c:if>
+
+        </div>
+    </div>
+</div>
+<%@include file="/views/shared/footer.jsp"%>
+</body>
+</html>

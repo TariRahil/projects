@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      android:icon="@drawable/menu">
+
+
+
+    <item
+        android:id="@+id/trips_log"
+        android:icon="@drawable/trip"
+        android:title="@string/menu_trips"
+        android:orderInCategory="1"
+        app:showAsAction="never"
+        android:visible="false"/>
+    <item
+        android:id="@+id/edit_info"
+        android:icon="@drawable/edit_info"
+        android:title="@string/menu_edit_info"
+        android:orderInCategory="2"
+        app:showAsAction="never"
+        android:visible="false"/>
+    <item
+        android:id="@+id/config"
+        android:icon="@drawable/config"
+        android:title="@string/menu_config"
+        android:orderInCategory="3"
+        app:showAsAction="never"
+        android:visible="false"/>
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/about"
+        android:title="@string/menu_about"
+        android:orderInCategory="4"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/exit"
+        android:icon="@drawable/exit"
+        android:title="@string/menu_exit"
+        android:orderInCategory="5"
+        app:showAsAction="never"/>
+
+
+</menu>

@@ -1,0 +1,112 @@
+<resources>
+
+    <string name="app_name">CAPDRIVER</string>
+    <string name="lang">lang</string>
+    <string name="country">country</string>
+    <string name="lang_fa">fa</string>
+    <string name="country_ir">IR</string>
+    <string name="lang_en">en</string>
+    <string name="country_us">US</string>
+
+    <!--activity_main-->
+    <string name="activity_main_btn_login">Login</string>
+    <string name="activity_main_btn_SignUp">Sign Up</string>
+    <string name="activity_main_btn_save">Save</string>
+    <string name="activity_main_txtView_FaLan">فارسی</string>
+    <string name="activity_main_txtView_EnLan">English</string>
+
+    <!--activity_signup-->
+    <string name="activity_signup_txtName">Full Name</string>
+    <string name="activity_signup_txtFirstName">First Name</string>
+    <string name="activity_signup_txtLastName">Last Name</string>
+    <string name="activity_signup_txtCarModel">Car Model</string>
+    <string name="activity_signup_txtCarColor">Car Color</string>
+    <string name="activity_signup_txtNumberPlate">Number Plate</string>
+    <string name="activity_signup_txtEmail">Email Address</string>
+    <string name="activity_signup_txtPassword">Password</string>
+    <string name="activity_signup_alert1_title">Warning</string>
+    <string name="activity_signup_alert1_message">Please fill all fields.</string>
+    <string name="activity_signup_alert_positive_btn">OK</string>
+    <string name="activity_signup_alert2_title">Error</string>
+    <string name="activity_signup_alert2_message">Error happened in registeration.</string>
+    <string name="activity_signup_alert3_title">Message</string>
+    <string name="activity_signup_alert3_message">Registeration completed.</string>
+    <string name="activity_signup_txtCarName">Car Name</string>
+
+    <!--activity_login-->
+    <string name="activity_login_txtEmail">Email Address</string>
+    <string name="activity_login_txtPassword">Password</string>
+    <string name="activity_login_alert1_title">Warning</string>
+    <string name="activity_login_alert1_message">Please fill all fields.</string>
+    <string name="activity_login_alert_positive_btn">OK</string>
+    <string name="activity_login_alert2_title">Error</string>
+    <string name="activity_login_alert2_message">Username or password is wrong.</string>
+    <string name="activity_login_alert3_title">Message</string>
+    <string name="activity_login_noInternet_title">Warning</string>
+    <string name="activity_login_noInternet_message">Please check your internet connection.</string>
+    <string name="activity_login_noInternet_positive_btn">OK</string>
+    <string name="activity_login_alert3_message">Login ok.</string>
+
+    <!--MENU-->
+    <string name="menu_trips">Trips</string>
+    <string name="menu_edit_info">Edit Info</string>
+    <string name="menu_selected_addresses">Selected Addresses</string>
+    <string name="menu_config">Configuration</string>
+    <string name="menu_about">About CAPDriver</string>
+    <string name="menu_exit">Exit</string>
+    <string name="menu_exit_message">Do you want to exit?</string>
+    <string name="menu_positive_btn">Yes</string>
+    <string name="menu_negetive_btn">No</string>
+    <string name="activity_menu_title">menu_activity</string>
+
+    <!--activity_edit_info-->
+    <string name="activity_edit_info_label">Edit information</string>
+    <string name="activity_edit_info_phone">Phone</string>
+    <string name="activity_edit_info_hand_phone">Hand phone</string>
+    <string name="activity_edit_info_address">Address</string>
+    <string name="activity_edit_info_birth_day">BarthDay</string>
+    <string name="activity_edit_info_gender">Gender</string>
+    <string name="activity_edit_info_gender_male">Male</string>
+    <string name="activity_edit_info_gender_female">Uemale</string>
+    <string name="activity_edit_info_gender_unknown">Unknown</string>
+    <string name="activity_edit_info_gender_spinner_title">Select Gender</string>
+    <string name="activity_edit_info_update_ok">Update Is Ok</string>
+
+    <!--fireBase_Notification-->
+    <string name="FCM_PREF">ir.dpi.cap.fcm_pref</string>
+    <string name="FCM_TOKEN">ir.dpi.cap.fcm_token</string>
+
+    <!--activity_wellcome_Page-->
+    <string name="activity_wellcome_Page_btn_ActivePassive">active</string>
+    <string name="activity_wellcome_Page_inActive">inActive</string>
+    <string name="activity_wellcome_Page_Active">active</string>
+    <string name="activity_wellcome_Page_wellcome_to_driver_message">Wellcome \n Have Good Trips...</string>
+    <string name="activity_wellcome_Page_dear_driver">Dear Driver</string>
+    <string name="activity_wellcome_about_cap_driver_title">about capDriver</string>
+    <string name="activity_wellcome_about_cap_driver_message">version 1.1</string>
+    <string name="activity_wellcome_about_cap_driver_btn">ok</string>
+
+    <!--activity_driver_notify-->
+    <string name="activity_driver_notify_cancel_trip_by_driver_after_start_trip_title">warnning!</string>
+    <string name="activity_driver_notify_cancel_trip_by_driver_after_start_trip_message">you can not exit when start trip.</string>
+    <string name="activity_driver_notify_cancel_trip_by_driver_after_start_trip_possitive_btn">ok</string>
+    <string name="activity_driver_notify_no_trip_title">warnning!</string>
+    <string name="activity_driver_notify_no_trip_message">you dont have any trip.</string>
+    <string name="activity_driver_notify_no_trip_possitive_btn">ok</string>
+    <string name="activity_driver_notify_cancel_trip_by_passenger_title">warnning!</string>
+    <string name="activity_driver_notify_cancel_trip_by_passenger_message">trip canceld by passenger.</string>
+    <string name="activity_driver_notify_cancel_trip_by_passenger_possitive_btn">Ok</string>
+    <string name="activity_driver_notify_passenger_name">Passenger Name</string>
+    <string name="activity_driver_notify_source">source</string>
+    <string name="activity_driver_notify_destination">destination</string>
+    <string name="activity_driver_notify_accept">accept</string>
+    <string name="activity_driver_notify_decline">decline</string>
+    <string name="activity_driver_notify_end_of_trip">End Of Trip</string>
+    <string name="activity_driver_notify_google_map">Google Map</string>
+    <string name="activity_driver_notify_Cancel">Cancel</string>
+    <string name="activity_driver_notify_cap_arrived">Cap arrived</string>
+    <string name="activity_driver_notify_call">Call</string>
+
+
+
+</resources>

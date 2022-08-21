@@ -1,0 +1,119 @@
+package servlets;
+
+import bo.UserAccount;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import common.Connection;
+import common.StringFormat;
+import org.json.HTTP;
+import org.json.JSONObject;
+
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+
+@WebServlet("/UserAccountServlet")
+public class UserAccountServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        String message="";
+        try {
+        String action=request.getParameter("action");
+        if (action.equals("save")||action.equals("update")) {
+            System.out.println(action);
+           saveOrUpdate(request,response,action);
+          }
+       else if(action.equals("managerAutoComplete"))
+       {
+           managerAutoComplete(request,response);
+       }
+        else if(action.equals("checkDuplicateUserName"))
+        {
+            checkDuplicateUserName(request,response);
+        }
+
+        }
+        catch (Exception ex)
+        {
+            System.out.println("Exception:"+ex.getMessage());
+
+
+        }
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/admin/userAccount.jsp");
+        requestDispatcher.forward(request, response);
+    }
+    public void saveOrUpdate(HttpServletRequest request,HttpServletResponse response,String action ) throws IOException {
+        try {
+            String message = "";
+            String firstName = request.getParameter("firstName");
+            String lastName = request.getParameter("lastName");
+            String userName = request.getParameter("userName");
+            String password = request.getParameter("password");
+            String unitId = request.getParameter("unitId");
+            String active = request.getParameter("active");
+            String managerId = request.getParameter("managerId");
+            if (action.equals("save")) {
+
+                message = Connection.serviceConnection("userAccountAddUser/" + StringFormat.encoder(firstName) + "/" + StringFormat.encoder(lastName) + "/" + userName + "/" + password + "/" + managerId + "/" + unitId + "/" + ((active != null) ? "1" : "0") + "/" + "1", "GET");
+                System.out.println("userAccountAddUser/" + StringFormat.encoder(firstName) + "/" + StringFormat.encoder(lastName) + "/" + userName + "/" + password + "/" + managerId + "/" + unitId + "/" + ((active != null) ? "1" : "0") + "/" + "1");
+            } else if (action.equals("update")) {
+            }
+            response.setContentType("text/plain");
+            PrintWriter out = response.getWriter();
+            out.println(message);
+
+        }catch (Exception ex)
+        {
+            System.out.println("Exception is:"+ex.getMessage());
+        }
+
+
+    }
+    public void  managerAutoComplete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        try {
+            String word = request.getParameter("word");
+            String users = Connection.serviceConnection("userAccountGetByWord/" + StringFormat.encoder(word), "GET");
+            System.out.println("json:" + users);
+            response.setContentType("json");
+            response.setCharacterEncoding("utf-8");
+            PrintWriter out = response.getWriter();
+            out.println(users);
+        }
+        catch (Exception ex)
+        {
+            System.out.println("Exception is:"+ex.getMessage());
+        }
+    }
+    public void checkDuplicateUserName(HttpServletRequest request,HttpServletResponse response ) throws IOException {
+        try {
+            String message = "";
+            String userName = request.getParameter("userName");
+            message = Connection.serviceConnection("userAccountCheckDuplicateUserName/" + userName , "GET");
+            response.setContentType("text/plain");
+            PrintWriter out = response.getWriter();
+            out.println(message);
+
+        }catch (Exception ex)
+        {
+            System.out.println("Exception is:"+ex.getMessage());
+        }
+
+
+    }
+}
+

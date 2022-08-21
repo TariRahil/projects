@@ -1,0 +1,62 @@
+package servlets;
+
+import bo.Resource;
+import common.Connection;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.rmi.ServerException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ResourceServlet extends HttpServlet {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws  IOException, ServletException {
+
+        String output = Connection.serviceConnection("resourceList","GET");
+
+        //JSONObject jsonObject=new JSONObject(output);
+        JSONArray jsonArray = new JSONArray(output);
+List<String>  resourceName = new ArrayList<>();
+List<String>  resourceOwner = new ArrayList<>();
+        for (int i = 0 ; i < jsonArray.length() ; i++){
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            System.out.println("JSONOBJECT= "+jsonObject);
+            resourceName.add(jsonObject.getString("name"));
+            resourceOwner.add(jsonObject.getString("location"));
+        }
+        System.out.println("resourceOwner  "+resourceOwner);
+        System.out.println("resourceName   "+resourceName);
+
+
+
+       // request.setAttribute("");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/views/admin/resource.jsp");
+        requestDispatcher.forward(request,response);
+           }
+
+    @Override
+    protected void doGet(HttpServletRequest request,
+                         HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        System.out.println("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+        processRequest(request, response);
+    }
+    @Override
+    protected void doPost(HttpServletRequest request,
+                          HttpServletResponse response)
+            throws ServletException, IOException
+    {
+        processRequest(request, response);
+    }
+
+}

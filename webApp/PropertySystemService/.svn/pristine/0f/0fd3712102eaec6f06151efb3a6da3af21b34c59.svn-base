@@ -1,0 +1,68 @@
+package dl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import bo.Resource;
+import bo.views.ResourceView;
+import init.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+
+
+public class ResourceDL {
+    public List<Resource> selectAll1(){
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        String hQl = "from Resource ";
+        Query query = session.createQuery(hQl);
+        List<Resource> resource =  query.list();
+
+        session.getTransaction().commit();
+        session.close();
+        return resource;
+    }
+    public List<ResourceView> selectAll(int currentPage, int recordPerPage){
+        currentPage-=1;//show first record from 1 not zero
+
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        //( (Integer) session.createQuery("select count(*) from Resource ").iterate().next() ).intValue();
+        String hQl = "select Count(*) from Resource ";
+        Query query1 = session.createQuery(hQl);
+        long count = (long)query1.uniqueResult();
+        System.out.println("COUNT==="+count);
+        //int count = ( (Integer) session.createQuery("select count(*) from Resource ").iterate().next() ).intValue();
+        int pageCount= (count%recordPerPage)>0? ((int)(count/recordPerPage)+1) :(int) (count/recordPerPage);
+
+        String hql2 = " from Resource ";
+        Query query2 = session.createQuery(hql2);
+        query2.setFirstResult(currentPage*recordPerPage);
+        query2.setMaxResults(recordPerPage);
+
+        List<Resource> resourceList = query2.list();
+        List<ResourceView> resourceviewList = new ArrayList<ResourceView>();
+        for (Resource resource:resourceList) {
+            ResourceView resourceView=new ResourceView();
+            resourceView.setName(resource.getName());
+            resourceView.setLocation(resource.getLocation());
+            resourceView.setActive(resource.getActive());
+            resourceView.setFloor(resource.getFloor());
+            resourceView.setOwner(resource.getOwner());
+            resourceView.setResourceId(resource.getResourceId());
+            resourceView.setUnitId(resource.getUnitId());
+            resourceView.setPageCount(pageCount);
+            resourceView.setCount((int) count);
+            resourceviewList.add(resourceView);
+        }
+
+        session.getTransaction().commit();
+        session.close();
+        return resourceviewList;
+    }
+}

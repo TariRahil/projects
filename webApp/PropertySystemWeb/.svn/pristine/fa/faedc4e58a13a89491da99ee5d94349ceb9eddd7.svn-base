@@ -1,0 +1,11 @@
+<div class="container footer">
+    <hr>
+    <!-- footer-->
+    <footer>
+        <div class="row">
+            <div>
+                <p>Powered by dpi, INTERNAL SYSTEM.</p>
+            </div>
+        </div>
+    </footer>
+</div>

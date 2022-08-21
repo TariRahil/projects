@@ -1,0 +1,110 @@
+<resources>
+
+    <string name="app_name">کپ درایور</string>
+    <string name="lang">lang</string>
+    <string name="country">کشور</string>
+    <string name="lang_fa">fa</string>
+    <string name="country_ir">IR</string>
+    <string name="lang_en">en</string>
+    <string name="country_us">US</string>
+
+    <!--activity_main-->
+    <string name="activity_main_btn_login">ورود</string>
+    <string name="activity_main_btn_SignUp">ثبت نام</string>
+    <string name="activity_main_btn_save">ذخیره</string>
+    <string name="activity_main_txtView_FaLan">فارسی</string>
+    <string name="activity_main_txtView_EnLan">انگلیسی</string>
+
+    <!--activity_signup-->
+    <string name="activity_signup_txtName">نام کامل</string>
+    <string name="activity_signup_txtEmail">نشانی رایانامه</string>
+    <string name="activity_signup_txtPassword">کلمه عبور</string>
+    <string name="activity_signup_alert1_title">هشدار!</string>
+    <string name="activity_signup_alert1_message">لطفا همه فیلدها را پر کنید.</string>
+    <string name="activity_signup_alert_positive_btn">باشه</string>
+    <string name="activity_signup_alert2_title">خطا</string>
+    <string name="activity_signup_alert2_message">خطا در ثبت نام</string>
+    <string name="activity_signup_alert3_title">پیغام</string>
+    <string name="activity_signup_alert3_message">ثبت نام کامل شد.</string>
+
+    <!--activity_login-->
+    <string name="activity_login_txtEmail">نشانی رایانامه</string>
+    <string name="activity_login_txtPassword">کلمه عبور</string>
+    <string name="activity_login_alert1_title">هشدار!</string>
+    <string name="activity_login_alert1_message">لطفا همه فیلدها را پر کنید.</string>
+    <string name="activity_login_alert_positive_btn">باشه</string>
+    <string name="activity_login_alert2_title">خطا</string>
+    <string name="activity_login_alert2_message">نام کاربری یا کلمه عبور اشتباه است.</string>
+    <string name="activity_login_alert3_title">پیغام</string>
+    <string name="activity_login_noInternet_title">هشدار!</string>
+    <string name="activity_login_noInternet_message">لطفا ارتباط اینترنت خود را بررسی کنید.</string>
+    <string name="activity_login_noInternet_positive_btn">باشه</string>
+    <string name="activity_login_alert3_message">وارد شدید.</string>
+
+    <!--MENU-->
+    <string name="menu_trips">سفرها</string>
+    <string name="menu_edit_info">ویرایش اطلاعات</string>
+    <string name="menu_selected_addresses">آدرس انتخاب شده</string>
+    <string name="menu_config">پیکربندی</string>
+    <string name="menu_about">درباره کپ درایور</string>
+    <string name="menu_exit">خروج</string>
+    <string name="menu_exit_message">می خواهید خارج شوید؟</string>
+    <string name="menu_positive_btn">بله</string>
+    <string name="menu_negetive_btn">خیر</string>
+    <string name="activity_menu_title">menu_activity</string>
+
+    <!--activity_edit_info-->
+    <string name="activity_edit_info_label">ویرایش اطلاعات</string>
+    <string name="activity_edit_info_phone">تلفن</string>
+    <string name="activity_edit_info_hand_phone">تلفن همراه</string>
+    <string name="activity_edit_info_address">نشانی</string>
+    <string name="activity_edit_info_birth_day">تاریخ تولد</string>
+    <string name="activity_edit_info_gender">جنسیت</string>
+    <string name="activity_edit_info_gender_male">آقا</string>
+    <string name="activity_edit_info_gender_female">خانم</string>
+    <string name="activity_edit_info_gender_unknown">سایر</string>
+    <string name="activity_edit_info_gender_spinner_title">انتخاب جنسیت</string>
+    <string name="activity_edit_info_update_ok">بروزرسانی انجام شد.</string>
+
+    <!--fireBase_Notification-->
+    <string name="FCM_PREF">ir.dpi.cap.fcm_pref</string>
+    <string name="FCM_TOKEN">ir.dpi.cap.fcm_token</string>
+
+    <!--activity_wellcome_Page-->
+    <string name="activity_wellcome_Page_btn_ActivePassive">active</string>
+    <string name="activity_wellcome_Page_inActive">غیرفعال</string>
+    <string name="activity_wellcome_Page_Active">فعال</string>
+    <string name="activity_wellcome_Page_dear_driver">"راننده عزیز "</string>
+    <string name="activity_wellcome_Page_wellcome_to_driver_message">خوش آمدید  سفرهای خوبی داشته باشید...</string>
+
+    <!--activity_driver_notify-->
+    <string name="activity_driver_notify_cancel_trip_by_driver_after_start_trip_title">هشدار!</string>
+    <string name="activity_driver_notify_cancel_trip_by_driver_after_start_trip_message">سفر آغاز شده است، شما نمی توانید آن را لغو کنید.</string>
+    <string name="activity_driver_notify_cancel_trip_by_driver_after_start_trip_possitive_btn">باشه</string>
+    <string name="activity_driver_notify_no_trip_title">warnning!</string>
+    <string name="activity_driver_notify_no_trip_message">سفری برای شما ثبت نشده است.</string>
+    <string name="activity_driver_notify_no_trip_possitive_btn">ok</string>
+    <string name="activity_driver_notify_cancel_trip_by_passenger_title">warnning!</string>
+    <string name="activity_driver_notify_cancel_trip_by_passenger_message">سفر توسط مسافر لغو شد.</string>
+    <string name="activity_driver_notify_cancel_trip_by_passenger_possitive_btn">ok</string>
+    <string name="activity_driver_notify_Cancel">لغوسفر</string>
+    <string name="activity_driver_notify_accept">می پذیرم</string>
+    <string name="activity_driver_notify_call">تماس با مسافر</string>
+    <string name="activity_driver_notify_cap_arrived">کپ رسید</string>
+    <string name="activity_driver_notify_decline">نمی پذیرم</string>
+    <string name="activity_driver_notify_destination">مقصد</string>
+    <string name="activity_driver_notify_end_of_trip">پایان سفر</string>
+    <string name="activity_driver_notify_google_map">نقشه گوگل</string>
+    <string name="activity_driver_notify_passenger_name">نام مسافر</string>
+    <string name="activity_driver_notify_source">مبدا</string>
+    <string name="activity_wellcome_about_cap_driver_btn">باشه</string>
+    <string name="activity_wellcome_about_cap_driver_message">نسخه 1.1</string>
+    <string name="activity_wellcome_about_cap_driver_title">درباره کپ درایور</string>
+    <string name="activity_signup_txtCarColor">رنگ خودرو</string>
+    <string name="activity_signup_txtCarName">مدل خودرو</string>
+    <string name="activity_signup_txtFirstName">نام</string>
+    <string name="activity_signup_txtLastName">نام خانوادگی</string>
+    <string name="activity_signup_txtNumberPlate">پلاک خودرو</string>
+    <string name="activity_signup_txtCarModel">مدل ماشین</string>
+
+</resources>

@@ -1,0 +1,87 @@
+<resources>
+    <string name="app_name">کپ</string>
+    <string name="lang">lang</string>
+    <string name="country">country</string>
+    <string name="lang_fa">fa</string>
+    <string name="country_ir">IR</string>
+    <string name="lang_en">en</string>
+    <string name="country_us">US</string>
+    <string name="activity_main_btn_login">ورود</string>
+    <string name="activity_main_btn_SignUp">ثبت نام</string>
+    <string name="activity_main_btn_save">ثبت تغییرات</string>
+    <string name="activity_main_txtView_FaLan">فارسی</string>
+    <string name="activity_main_txtView_EnLan">English</string>
+    <string name="activity_signup_txtName">نام کامل</string>
+    <string name="activity_signup_txtEmail">آدرس ایمیل</string>
+    <string name="activity_signup_txtPassword">کلمه عبور</string>
+    <string name="activity_signup_alert1_title">اخطار</string>
+    <string name="activity_signup_alert1_message">اطلاعات را به صورت کامل وارد نمایید.</string>
+    <string name="activity_signup_alert_positive_btn">تایید</string>
+    <string name="activity_signup_alert2_title">خطا</string>
+    <string name="activity_signup_alert2_message">بروز خطا در ثبت نام.</string>
+    <string name="activity_signup_alert3_title">پیام</string>
+    <string name="activity_signup_alert3_message">ثبت نام با موفقیت انجام شد.</string>
+    <string name="title_activity_maps">نقشه</string>
+    <string name="activity_maps_txtCarNum">کپ موجود: </string>
+    <string name="activity_maps_txtSource">مبدا: </string>
+    <string name="activity_maps_txtDest">مقصد: </string>
+    <string name="activity_maps_whereRU">کجا هستید؟</string>
+    <string name="activity_maps_btnRequest">درخواست کپ</string>
+    <string name="activity_maps_btnReject">لغو سفر</string>
+    <string name="activity_maps_txtWating">برنامه در حال بررسی درخواست شماست.لطفا منتظر بمانید...</string>
+
+    <string name="activity_login_txtEmail">آدرس ایمیل</string>
+    <string name="activity_login_txtPassword">کلمه عبور</string>
+    <string name="activity_login_alert1_title">اخطار</string>
+    <string name="activity_login_alert1_message">اطلاعات را به صورت کامل وارد نمایید.</string>
+    <string name="activity_login_alert_positive_btn">تایید</string>
+    <string name="activity_login_alert2_title">خطا</string>
+    <string name="activity_login_alert2_message">آدرس ایمیل یا کلمه عبور اشتباه است.</string>
+    <string name="activity_login_alert3_title">پیام</string>
+    <string name="activity_login_alert3_message">ورود با موفقیت انجام شد.</string>
+
+    <string name="activity_login_alertNoInternet_title">عدم اتصال به اینترنت</string>
+    <string name="activity_login_alertNoInternet_message">اتصال شما به اینترنت برقرار نیست.برای استفاده از سرویس کپ به اینترنت وصل شوید.</string>
+
+
+    <!--MENU-->
+    <string name="menu_trips">سفرها</string>
+    <string name="menu_edit_info">ویرایش اطلاعات</string>
+    <string name="menu_selected_addresses">آدرس های منتخب</string>
+    <string name="menu_config">تنظیمات</string>
+    <string name="menu_about">درباره CAP</string>
+    <string name="menu_exit">خروج</string>
+
+
+    <string name="menu_exit_message">می خواهید از برنامه خارج شوید؟</string>
+    <string name="menu_positive_btn">بله</string>
+    <string name="menu_negetive_btn">خیر</string>
+
+    <string name="title_activity_menu_activity">منو</string>
+
+
+    <!--EDIT_INFO-->
+    <string name="activity_edit_info_label">ویرایش اطلاعات</string>
+    <string name="activity_edit_info_phone">تلفن ثابت</string>
+    <string name="activity_edit_info_hand_phone">تلفن همراه</string>
+    <string name="activity_edit_info_address">آدرس</string>
+    <string name="activity_edit_info_birth_day">تاریخ تولد</string>
+    <string name="activity_edit_info_gender">جنسیت</string>
+    <string name="activity_edit_info_gender_male">مرد</string>
+    <string name="activity_edit_info_gender_female">زن</string>
+    <string name="activity_edit_info_gender_unknown">نامشخص</string>
+    <string name="activity_edit_info_gender_spinner_title">انتخاب جنسیت</string>
+    <string name="activity_edit_info_update_ok">بروزرسانی با موفقیت انجام شد.</string>
+    <string name="FCM_PREF">ir.dpi.cap.fcm_pref</string>
+    <string name="FCM_TOKEN">ir.dpi.cap.fcm_token</string>
+
+
+
+
+
+
+
+
+
+
+</resources>

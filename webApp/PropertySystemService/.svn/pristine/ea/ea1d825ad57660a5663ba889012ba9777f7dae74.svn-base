@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bo.Role" table="Role" schema="dbo" catalog="PropertySystem">
+        <id name="roleId" column="RoleId"/>
+        <property name="createdBy" column="CreatedBy"/>
+        <property name="creationDate" column="CreationDate"/>
+        <property name="modifiedBy" column="ModifiedBy"/>
+        <property name="modifiedDate" column="ModifiedDate"/>
+        <property name="roleName" column="RoleName"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,163 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: tarrah
+  Date: 05/25/2019
+  Time: 11:33 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title1522251</title>
+    <script src="views/shared/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btnSave").click(function () {
+                $("#hdnAction").val("save");
+
+            });
+            $("#btnCancel").click(function () {
+                $("#hdnAction").val("Cancel");
+
+
+            });
+            // $("#btnSave").click(function () {
+            //     var userName=$("#txtUserName").val();
+            //     var password=$("#txtPassword").val();
+            //     try {
+            //         $.ajax({
+            //             beforeSend: function () { },
+            //             type: "POST",
+            //             url: "",
+            //             data: ({ userName: userName,password:password }),
+            //             success: function (result) {
+            //                 alert(result);
+            //
+            //             },
+            //             timeout: 12000,
+            //             complete: function (xhr, stat) {
+            //                  }
+            //         });
+            //     } catch (error) {
+            //         $.log("########>>  " + error.message);
+            //     }
+            //
+            // });
+
+
+        });
+        // jQuery.document.ready(function ()
+        // {
+        //     alert(jQuery("#btnSave").val());
+        //
+        // });
+        // $(function() {
+        //     $(document).ready(function () {
+        //         alert("jquery run!");
+        //
+        //     })
+        // });
+        // function submitForm(x) {
+        //     if(x.id=="btnSave")
+        //     {
+        //         //alert("save");
+        //         alert(jQuery("#btnSave").val());
+        //     }
+        //     else
+        //     {
+        //         alert("cancele");
+        //     }
+        //
+        //
+        // }
+    </script>
+</head>
+<body>
+<%@include file="shared/navbar.jsp"%>
+
+<form method="post">
+    <div style="direction: rtl ; padding-right: 25%">
+        <table>
+            <tr>
+                <td>
+                    <%=(String) request.getAttribute("message")%>
+
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    نام:
+                </td>
+                <td>
+                    <input type="text" name="txtFirstName" id="txtFirstName"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    نام خانوادگی:
+                </td>
+                <td>
+                    <input type="text" name="txtLastName" id="txtLastName"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    نام کاربری:
+                </td>
+                <td>
+                    <input type="text" name="txtUserName" id="txtUserName"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    کلمه عبور:
+                </td>
+                <td>
+                    <input type="password" name="txtPassword" id="txtPassword"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    مدیر سازمانی:
+                </td>
+                <td>
+                    <input type="" name="txtManagerId" id="txtManagerId"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    اداره کل:
+                </td>
+                <td>
+                    <select name="cboUserTypeId" id="cboUserTypeId">
+                        <option value="0" selected>انتخاب کنید</option>
+                        <option value="3">IS</option>
+                        <option value="4">DC</option>
+                        <option value="5">DP</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    وضعیت:
+                </td>
+                <td>
+                    <input type="checkbox" checked="checked" name="chkActive" id="chkActive"> فعال </input>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="ذخیره" name="btnSave" id="btnSave" />
+                    <input type="submit" value="انصراف" name="btnCancel" id="btnCancel" onclick="Location.href= 'register'"/>
+
+                </td>
+                <td> <input type="hidden" name="hdnAction" id="hdnAction" /></td>
+            </tr>
+        </table>
+    </div>
+</form>
+<%@include file="shared/footer.jsp"%>
+
+</body>
+</html>

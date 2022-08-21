@@ -1,0 +1,16 @@
+package bl;
+
+import bo.Resource;
+import dl.ResourceDL;
+
+import java.util.List;
+
+public class ResourceBL {
+
+    ResourceDL resourceDL = new ResourceDL();
+    public List<Resource> GetAll(int limit)  {
+        List<Resource> resource = resourceDL.selectAll(limit);
+
+        return resource;
+    }
+}

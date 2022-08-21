@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">CAP</string>
+    <string name="lang">lang</string>
+    <string name="country">country</string>
+    <string name="lang_fa">fa</string>
+    <string name="country_ir">IR</string>
+    <string name="lang_en">en</string>
+    <string name="country_us">US</string>
+    <string name="activity_main_btn_login">Login</string>
+    <string name="activity_main_btn_SignUp">Sign Up</string>
+    <string name="activity_main_btn_save">Save</string>
+    <string name="activity_main_txtView_FaLan">فارسی</string>
+    <string name="activity_main_txtView_EnLan">English</string>
+    <string name="activity_signup_txtName">Full Name</string>
+    <string name="activity_signup_txtEmail">Email Address</string>
+    <string name="activity_signup_txtPassword">Password</string>
+    <string name="activity_signup_alert1_title">Warning</string>
+    <string name="activity_signup_alert1_message">Please fill all fields.</string>
+    <string name="activity_signup_alert_positive_btn">OK</string>
+    <string name="activity_signup_alert2_title">Error</string>
+    <string name="activity_signup_alert2_message">Error happened in registeration.</string>
+    <string name="activity_signup_alert3_title">Message</string>
+    <string name="activity_signup_alert3_message">Registeration completed.</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="activity_maps_txtCarNum">Available CAP: </string>
+    <string name="activity_maps_txtSource">From: </string>
+    <string name="activity_maps_txtDest">To: </string>
+    <string name="activity_maps_whereRU">Where are you?</string>
+    <string name="activity_maps_btnRequest">Cap Request</string>
+    <string name="activity_maps_btnReject">Cap Reject</string>
+    <string name="activity_maps_txtWating">The app is checking your request. please wait...</string>
+
+    <string name="activity_login_txtEmail">Email Address</string>
+    <string name="activity_login_txtPassword">Password</string>
+    <string name="activity_login_alert1_title">Warning</string>
+    <string name="activity_login_alert1_message">Please fill all fields.</string>
+    <string name="activity_login_alert_positive_btn">OK</string>
+    <string name="activity_login_alert2_title">Error</string>
+    <string name="activity_login_alert2_message">Username or password is wrong.</string>
+    <string name="activity_login_alert3_title">Message</string>
+
+    <string name="activity_login_alertNoInternet_message">Your connection to the Internet is not available.Connect to the Internet to use the CAP service. </string>
+    <string name="activity_login_alertNoInternet_title">No internet connection</string>
+
+    <!--MENU-->
+    <string name="menu_trips">Trips</string>
+    <string name="menu_edit_info">Edit Info</string>
+    <string name="menu_selected_addresses">Selected Addresses</string>
+    <string name="menu_config">Configuration</string>
+    <string name="menu_about">About CAP</string>
+    <string name="menu_exit">Exit</string>
+
+    <string name="menu_exit_message">Do you want to exit?</string>
+    <string name="menu_positive_btn">Yes</string>
+    <string name="menu_negetive_btn">No</string>
+    <string name="title_activity_menu_activity">menu_activity</string>
+
+    <string name="activity_login_alert3_message">Login ok.</string>
+
+
+    <!--EDIT_INFO-->
+    <string name="activity_edit_info_label">Edit information</string>
+    <string name="activity_edit_info_phone">Phone</string>
+    <string name="activity_edit_info_hand_phone">Hand phone</string>
+    <string name="activity_edit_info_address">Address</string>
+    <string name="activity_edit_info_birth_day">BarthDay</string>
+    <string name="activity_edit_info_gender">Gender</string>
+    <string name="activity_edit_info_gender_male">Male</string>
+    <string name="activity_edit_info_gender_female">Uemale</string>
+    <string name="activity_edit_info_gender_unknown">Unknown</string>
+    <string name="activity_edit_info_gender_spinner_title">Select Gender</string>
+    <string name="activity_edit_info_update_ok">Update Is Ok</string>
+
+
+    <string name="FCM_PREF">ir.dpi.cap.fcm_pref</string>
+    <string name="FCM_TOKEN">ir.dpi.cap.fcm_token</string>
+
+</resources>

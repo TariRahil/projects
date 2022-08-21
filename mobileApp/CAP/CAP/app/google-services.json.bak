@@ -1,0 +1,113 @@
+{
+  "project_info": {
+    "project_number": "227286418640",
+    "firebase_url": "https://capdpi-b1ae8.firebaseio.com",
+    "project_id": "capdpi-b1ae8",
+    "storage_bucket": "capdpi-b1ae8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227286418640:android:20d218ee08b35bc4",
+        "android_client_info": {
+          "package_name": "ir.dpi.cap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227286418640-q3e4iov41fu3hjev6jt6iu6gur1tjtsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3yZM4C_z7SaHhHL6md2gMrBCRcNYob4A"
+        },
+        {
+          "current_key": "AIzaSyBe7wapXQfG7MEu36Pz6v_0goGD47eNcT4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227286418640:android:086c24841f0791a5",
+        "android_client_info": {
+          "package_name": "ir.dpi.capDriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227286418640-q3e4iov41fu3hjev6jt6iu6gur1tjtsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3yZM4C_z7SaHhHL6md2gMrBCRcNYob4A"
+        },
+        {
+          "current_key": "AIzaSyBe7wapXQfG7MEu36Pz6v_0goGD47eNcT4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227286418640:android:e2a38c52ba17daf7",
+        "android_client_info": {
+          "package_name": "ir.dpi.capPassenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227286418640-q3e4iov41fu3hjev6jt6iu6gur1tjtsq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3yZM4C_z7SaHhHL6md2gMrBCRcNYob4A"
+        },
+        {
+          "current_key": "AIzaSyBe7wapXQfG7MEu36Pz6v_0goGD47eNcT4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,105 @@
+package bo;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
+
+@Entity
+@IdClass(UserRolePK.class)
+public class UserRole {
+    private int roleId;
+    private String userId;
+    private Timestamp creationDate;
+    private Timestamp modifiedDate;
+    private String createdBy;
+    private String modifiedBy;
+
+    @Id
+    @Column(name = "RoleId")
+    public int getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(int roleId) {
+        this.roleId = roleId;
+    }
+
+    @Id
+    @Column(name = "UserId")
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    @Basic
+    @Column(name = "CreationDate")
+    public Timestamp getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Timestamp creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    @Basic
+    @Column(name = "ModifiedDate")
+    public Timestamp getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Timestamp modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    @Basic
+    @Column(name = "CreatedBy")
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    @Basic
+    @Column(name = "ModifiedBy")
+    public String getModifiedBy() {
+        return modifiedBy;
+    }
+
+    public void setModifiedBy(String modifiedBy) {
+        this.modifiedBy = modifiedBy;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserRole userRole = (UserRole) o;
+
+        if (roleId != userRole.roleId) return false;
+        if (userId != null ? !userId.equals(userRole.userId) : userRole.userId != null) return false;
+        if (creationDate != null ? !creationDate.equals(userRole.creationDate) : userRole.creationDate != null)
+            return false;
+        if (modifiedDate != null ? !modifiedDate.equals(userRole.modifiedDate) : userRole.modifiedDate != null)
+            return false;
+        if (createdBy != null ? !createdBy.equals(userRole.createdBy) : userRole.createdBy != null) return false;
+        if (modifiedBy != null ? !modifiedBy.equals(userRole.modifiedBy) : userRole.modifiedBy != null) return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = roleId;
+        result = 31 * result + (userId != null ? userId.hashCode() : 0);
+        result = 31 * result + (creationDate != null ? creationDate.hashCode() : 0);
+        result = 31 * result + (modifiedDate != null ? modifiedDate.hashCode() : 0);
+        result = 31 * result + (createdBy != null ? createdBy.hashCode() : 0);
+        result = 31 * result + (modifiedBy != null ? modifiedBy.hashCode() : 0);
+        return result;
+    }
+}

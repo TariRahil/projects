@@ -1,0 +1,35 @@
+package bl;
+
+import bo.Resource;
+import bo.views.ResourceView;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import dl.ResourceDL;
+
+import java.util.List;
+
+public class ResourceBL {
+
+    ResourceDL resourceDL = new ResourceDL();
+
+    public List<Resource> GetAll1()  {
+        List<Resource> resource = resourceDL.selectAll1();
+
+        return resource;
+    }
+
+    public List<ResourceView> GetAll(int currentPage, int recordPerPage )  {
+        List<ResourceView> resource = resourceDL.selectAll(currentPage,recordPerPage);
+
+        return resource;
+    }
+
+    public String getById(String resourceId) throws JsonProcessingException {
+        System.out.println("rID="+resourceId);
+        Resource resource = resourceDL.selectByResourceId(resourceId);
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        String json = ow.writeValueAsString(resource);
+        return json;
+    }
+}

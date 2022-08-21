@@ -1,0 +1,23 @@
+package bl;
+
+import bo.Resource;
+import bo.views.ResourceView;
+import dl.ResourceDL;
+
+import java.util.List;
+
+public class ResourceBL {
+
+    ResourceDL resourceDL = new ResourceDL();
+    public List<Resource> GetAll1()  {
+        List<Resource> resource = resourceDL.selectAll1();
+
+        return resource;
+    }
+
+    public List<ResourceView> GetAll(int currentPage, int recordPerPage )  {
+        List<ResourceView> resource = resourceDL.selectAll(currentPage,recordPerPage);
+
+        return resource;
+    }
+}

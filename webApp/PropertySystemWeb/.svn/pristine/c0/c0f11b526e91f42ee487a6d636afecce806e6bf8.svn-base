@@ -1,0 +1,59 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: tarrah
+  Date: 05/25/2019
+  Time: 11:33 AM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title1522251</title>
+</head>
+<body>
+<form method="post">
+    <div style="direction: rtl ; padding-right: 25%">
+    <table>
+        <tr>
+            <td>
+                <%=(String) request.getAttribute("message")%>
+
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                نام کاربری:
+            </td>
+            <td>
+                <input type="text" name="txtUserName"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                کلمه عبور:
+            </td>
+            <td>
+                <input type="password" name="txtPassword"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+               تکرار کلمه عبور:
+            </td>
+            <td>
+                <input type="password" name="txtRepeatPassword"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="ذخیره" name="btnSave" />
+                <input type="submit" value="انصراف" name="btnCancel" onclick="Location.href= 'register'"/>
+
+            </td>
+        </tr>
+    </table>
+    </div>
+</form>
+</body>
+</html>

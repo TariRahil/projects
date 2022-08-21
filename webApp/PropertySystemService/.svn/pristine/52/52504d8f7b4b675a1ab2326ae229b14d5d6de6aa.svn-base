@@ -1,0 +1,34 @@
+package dl;
+
+import java.util.List;
+
+import bo.Resource;
+import init.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+
+
+public class ResourceDL {
+    public List<Resource> selectAll(int limit){
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+
+        //List<Resource> resource = session.createQuery("from Resource").list();
+
+        String hQl = "from Resource ";
+        Query query = session.createQuery(hQl);
+        List<Resource> resource =  query.setMaxResults(limit).list();
+
+       /* public int getTotalBooks(){
+            return DataAccessUtils.intResult(hibernateTemplate.find(
+                    "SELECT COUNT(*) FROM Books"));
+        }*/
+
+        session.getTransaction().commit();
+        session.close();
+        System.out.println("RES_DL="+resource);
+        return resource;
+    }
+}

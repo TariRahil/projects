@@ -1,0 +1,21 @@
+package bl.common;
+
+import init.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+
+public class CreateSession {
+
+    static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    static Session session = sessionFactory.openSession();
+
+    public static Session OpenSession(){
+        session.beginTransaction();
+        return session;
+    }
+
+    public static void CloseSession(){
+        session.getTransaction().commit();
+        session.close();
+    }
+}

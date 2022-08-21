@@ -1,0 +1,52 @@
+package servlets;
+
+import common.Connection;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.core.MediaType;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+
+public class UserAccountServlet extends HttpServlet {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("message","");
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/admin/userAccount.jsp");
+        requestDispatcher.forward(req, resp);
+    }
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+       String action=req.getParameter("hdnAction");
+        if(action.equals("save")) {
+            save(req);
+
+       }
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/admin/userAccount.jsp");
+        requestDispatcher.forward(req, resp);
+
+
+    }
+    public void  save(HttpServletRequest req) throws IOException {
+        String firstName = URLEncoder.encode(req.getParameter("txtFirstName"), "utf-8");
+        String lastName =URLEncoder.encode( req.getParameter("txtLastName"),"utf-8" );
+        System.out.println(lastName);
+        String userName = req.getParameter("txtUserName");
+        String password = req.getParameter("txtPassword");
+        String managerId = req.getParameter("txtManagerId");
+        String unitId = req.getParameter("cboUnitId");
+        String active = (req.getParameter("chkActive") != null) ? "1" : "0";
+        String message = Connection.serviceConnection("userAccountAddUser/" + firstName + "/" + lastName + "/" + userName + "/" + password + "/" + managerId + "/" + unitId + "/" + active + "/" + "1", "GET");
+         req.setAttribute("message", message);
+
+    }
+}

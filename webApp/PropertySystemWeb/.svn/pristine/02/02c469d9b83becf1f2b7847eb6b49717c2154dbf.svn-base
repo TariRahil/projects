@@ -1,0 +1,28 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+         import="java.util.ResourceBundle"
+         import="java.util.Locale"%>
+
+<%
+    Locale thisLocale  = new Locale("fa","IR");
+    System.out.println("LOCALE="+Locale.getDefault());
+    // ResourceBundle messages = ResourceBundle.getBundle("PropSysLang",Locale.getDefault());
+    ResourceBundle messages = ResourceBundle.getBundle("PropSysLang",thisLocale);
+%>
+
+<nav>
+    <div>
+        <div class="w3-container w3-blue-grey w3-opacity w3-center">
+            <h2><%=messages.getString("resourceManagementSystem")%></h2>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggleing -->
+        <div>
+            <a href="#">خروج</a>
+
+            <a href="#">خانه</a>
+
+            <a href="#">تماس</a>
+
+            <a href="#">درباره</a>
+        </div>
+    </div>
+</nav>

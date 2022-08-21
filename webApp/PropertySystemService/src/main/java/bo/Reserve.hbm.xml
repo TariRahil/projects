@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bo.Reserve" table="Reserve" schema="dbo" catalog="PropertySystem">
+        <id name="reserveId" column="ReserveId"/>
+        <property name="resourceId" column="ResourceId"/>
+        <property name="pFromDate" column="PFromDate"/>
+        <property name="pToDate" column="PToDate"/>
+        <property name="fomTime" column="FomTime"/>
+        <property name="toTime" column="ToTime"/>
+        <property name="fromDate" column="FromDate"/>
+        <property name="toDate" column="ToDate"/>
+        <property name="creationDate" column="CreationDate"/>
+        <property name="modifiedDate" column="ModifiedDate"/>
+        <property name="createdBy" column="CreatedBy"/>
+        <property name="modifiedBy" column="ModifiedBy"/>
+        <property name="subject" column="Subject"/>
+        <property name="status" column="Status"/>
+    </class>
+</hibernate-mapping>

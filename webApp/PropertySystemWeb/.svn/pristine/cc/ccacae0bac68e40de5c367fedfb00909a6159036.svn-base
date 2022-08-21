@@ -1,0 +1,50 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: tarrah
+  Date: 05/25/2019
+  Time: 11:32 AM
+  To change this template use File | Settings | File Templates.
+--%>
+
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/w3.css">
+    <style>
+        .w3-table td
+        {
+            text-align: right!important;
+        }
+    </style>
+</head>
+<body class="w3-light-grey">
+
+<%@include file="shared/navbar.jsp"%>
+
+<div  style="direction: rtl ; padding-right: 25%">
+<form method="post" class="w3-selection w3-light-grey w3-padding " style="width: 50%;">
+<table class="w3-table w3-right-align w3-blue-gray" >
+    <tr class="w3-row w3-blue-grey">
+        <td>
+            <%=messages.getString("userName")%>:
+            <input type="text" name="txtUserName" name="name" class="w3-input w3-animate-input w3-border w3-round-large"/>
+        </td>
+    </tr>
+    <tr class="w3-row w3-blue-grey">
+        <td>
+            <%=messages.getString("password")%>:
+            <input type="text" name="txtPassword" class="w3-input w3-animate-input w3-border w3-round-large"/>
+        </td>
+    </tr>
+    <tr class="w3-row w3-blue-grey">
+        <td>
+            <input type="submit" value="<%=messages.getString("login")%>" name="btnLogin" onclick="location.href='login'" class="w3-btn w3-green w3-round-large w3-margin-bottom"/>
+            <input type="submit" value="<%=messages.getString("return")%>"  name="btnRegister" onclick="location.href='home'" class="w3-btn w3-green w3-round-large w3-margin-bottom"/>
+        </td>
+    </tr>
+</table>
+</form>
+</div>
+<%@include file="shared/footer.jsp"%>
+</body>
+</html>

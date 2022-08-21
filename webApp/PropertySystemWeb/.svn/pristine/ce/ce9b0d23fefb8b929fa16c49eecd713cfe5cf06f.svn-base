@@ -1,0 +1,36 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: tarrah
+  Date: 05/25/2019
+  Time: 11:32 AM
+  To change this template use File | Settings | File Templates.
+--%>
+
+<html class="w3-right-align">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/w3.css">
+</head>
+<body>
+
+<%@include file="shared/navbar.jsp"%>
+
+<div class="w3-direction w3-center">
+<form method="post" class="w3-content w3-light-grey w3-width-25 w3-round-xxlarge">
+    <div class="w3-blue-grey w3-padding" >
+       <%=messages.getString("userName")%>:
+       <input type="text" name="txtUserName" class="w3-input w3-round-large " /></div>
+    <div class="w3-blue-grey w3-padding">
+       <%=messages.getString("password")%>:&nbsp
+       <input type="text" name="txtPassword" class="w3-input w3-round-large" />
+    </div>
+    <div >
+       <input type="submit" value="<%=messages.getString("login")%>" name="btnLogin" onclick="location.href='login'"  class="w3-btn w3-round-large w3-blue w3-margin" />
+       <input type="submit" value="<%=messages.getString("return")%>"  name="btnRegister" onclick="location.href='home'"  class="w3-btn w3-round-large w3-blue w3-margin" />
+    </div>
+
+</form>
+</div>
+<%@include file="shared/footer.jsp"%>
+</body>
+</html>

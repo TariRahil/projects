@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="styles/w3.css">
+
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+         import="java.util.ResourceBundle"
+         import="java.util.Locale"%>
+
+<%
+    Locale thisLocale  = new Locale("fa","IR");
+//    Locale thisLocale  = new Locale("en","US");
+    // ResourceBundle messages = ResourceBundle.getBundle("PropSysLang",Locale.getDefault());
+    ResourceBundle messages = ResourceBundle.getBundle("PropSysLang",thisLocale);
+%>
+
+<nav>
+    <div>
+        <div class="w3-container w3-blue-grey w3-opacity w3-center">
+            <h2><%=messages.getString("resourceManagementSystem")%></h2>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggleing -->
+        <div>
+            <a href="#"><%=messages.getString("exit")%></a>
+
+            <a href="#"><%=messages.getString("home")%></a>
+
+            <a href="#"><%=messages.getString("contact")%></a>
+
+            <a href="#"><%=messages.getString("about")%></a>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,73 @@
+package dl;
+
+import bo.UserAccount;
+import init.HibernateUtil;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
+import java.sql.Timestamp;
+
+public class UserAccountDL {
+    public UserAccount selectByUserId(String userId)
+    {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        String hQl="from UserAccount where userId=: id ";
+        Query query = session.createQuery(hQl);
+        query.setParameter("id" , userId);
+        UserAccount user = (UserAccount) query.uniqueResult();
+        session.getTransaction().commit();
+        session.close();
+        return user;
+    }
+
+    public UserAccount selectByUsernamePassword(String userName, String password)
+    {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        String hQl="from UserAccount where userName=: userName and password =: password";
+        Query query = session.createQuery(hQl);
+        query.setParameter("userName" , userName);
+        query.setParameter("password" , password);
+        UserAccount userAccount = (UserAccount) query.uniqueResult();
+        session.getTransaction().commit();
+        session.close();
+        return userAccount;
+    }
+
+    public String insertUser(String firstName,String lastName,String userName,String password,Integer managerId,Integer unitId,boolean active,Integer createdBy )
+    {
+        try {
+            Timestamp dateNow = new Timestamp(System.currentTimeMillis());
+            SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+            Session session = sessionFactory.openSession();
+            session.beginTransaction();
+            UserAccount userAccount = new UserAccount();
+          //  java.net.URLDecoder.decode(firstName, String.valueOf(StandardCharsets.UTF_8));
+            firstName.replace('%',' ');
+            userAccount.setFirstName( URLDecoder.decode(firstName,StandardCharsets.UTF_8.name()));
+            userAccount.setLastName(lastName);
+            userAccount.setUserName(userName);
+            userAccount.setPassword(password);
+            userAccount.setUnitId(unitId);
+            userAccount.setActive(active);
+            userAccount.setManagerId(managerId);
+            userAccount.setActive(true);
+            userAccount.setCreatedBy(createdBy);
+            userAccount.setCreationDate(dateNow);
+            session.save(userAccount);
+            session.getTransaction().commit();
+            session.close();
+            return "add successfully.";
+        }
+        catch (Exception ex)
+        {
+            return  ex.getMessage();
+        }
+    }
+}

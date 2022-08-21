@@ -1,0 +1,65 @@
+package bl.rest;
+
+import bl.ResourceBL;
+import bl.UserAccountBL;
+import bo.Resource;
+
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.io.IOException;
+import java.util.List;
+
+@Path("/")
+public class PropSysService {
+    @GET
+    @Path("/userAccountGetById/{userId}")
+    public String userAccountGetById(@PathParam("userId") String userId) throws IOException {
+        UserAccountBL userAccountBL = new UserAccountBL();
+        return userAccountBL.getById(userId);
+    }
+
+    @GET
+    @Path("/userAccountGetByUsernamePassword/{userName}/{password}")
+    public String userAccountGetByUsernamePassword(@PathParam("userName") String userName, @PathParam("password") String password)
+            throws IOException {
+        UserAccountBL userAccountBL = new UserAccountBL();
+        return userAccountBL.getByUsernamePassword(userName,password);
+    }
+
+    @GET
+    @Path("/userAccountAddUser/{firstName}/{lastName}/{userName}/{password}/{managerId}/{userTypeId}/{userTypeId}/{active}/{createdBy}")
+    public String userAccountAddUser(@PathParam("firstName") String firstName,
+                                     @PathParam("lastName") String lastName,
+                                     @PathParam("userName") String userName,
+                                     @PathParam("password") String password,
+                                     @PathParam("managerId") Integer managerId,
+                                     @PathParam("userTypeId") Integer userTypeId,
+                                     @PathParam("active") Boolean active,
+                                     @PathParam("active") Integer createdBy)throws IOException {
+        UserAccountBL userAccountBL = new UserAccountBL();
+        String s=userAccountBL.getByUsernamePassword(userName,password);
+
+        if(s=="null")
+
+        {
+            return "This user exist...PLZ enter another user name...";
+        }
+        else{
+            String result= userAccountBL.addUser(firstName,lastName,userName,password,managerId,userTypeId,active,createdBy);
+            return result;
+        }
+
+    }
+
+    @GET
+    @Path("/resourceList")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Resource> resourceList() throws IOException{
+        ResourceBL resourceBL = new ResourceBL();
+        return resourceBL.GetAll();
+    }
+}

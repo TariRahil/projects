@@ -1,0 +1,16 @@
+package bl.common;
+
+import java.io.UnsupportedEncodingException;
+
+public class StringFormat {
+    public static String Decoder(String text)
+    {
+        String s = null;
+        try {
+            s = new String(text.getBytes("ISO-8859-1"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return s;
+    }
+}

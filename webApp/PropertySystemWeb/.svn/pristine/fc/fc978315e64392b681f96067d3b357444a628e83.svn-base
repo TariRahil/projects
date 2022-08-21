@@ -1,0 +1,70 @@
+package servlets;
+
+import common.Connection;
+import common.StringFormat;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.DateFormat;
+
+@WebServlet( "/ResourceServlet1")
+public class ResourceServlet1 extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String message="";
+        try {
+            String action               =request.getParameter("action");
+            String resourceId           = request.getParameter("resourceId");
+            String resourceName         = request.getParameter("resourceName");
+            String resourceOwner        = request.getParameter("resourceOwner");
+            String resourceCurrentPlace = request.getParameter("resourceCurrentPlace");
+            String floor                = request.getParameter("floor");
+            String unitId               = request.getParameter("unitId");
+            String status               = request.getParameter("status");
+            String createdBy            = "1";
+            String modifiedBy           = "2";
+
+           // status = (status != null ? true : false);
+            String by="";
+            if (action.equals("addResource")){
+                by = createdBy;
+            }else if (action.equals("editResource")) {
+                by = modifiedBy;
+            }
+
+            if (action.equals("addResource") || action.equals("editResource")) {
+                message = insertOrUpdate(resourceId,resourceName, resourceOwner, resourceCurrentPlace, floor,unitId ,by , status);
+            }
+        }
+        catch (Exception ex)
+        {
+            message=ex.getMessage();
+        }
+        response.setContentType("text/plain");
+        PrintWriter out = response.getWriter();
+        out.println(message);
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/admin/resource.jsp");
+        requestDispatcher.forward(request, response);
+    }
+
+    private String insertOrUpdate(String resourceId, String resourceName, String resourceOwner, String resourceCurrentPlace,
+                          String floor, String unitId,String modifiedBy, String status) throws IOException {
+
+        String apiMethod = "resourceInsertOrUpdate/" + resourceId + "/" + StringFormat.encoder(resourceName )+ "/"
+                +resourceOwner +"/"+ StringFormat.encoder(resourceCurrentPlace) + "/"
+                + floor + "/" + unitId+ "/" + modifiedBy + "/" +  status;
+
+        String message = Connection.serviceConnection( apiMethod, "GET");
+        return message;
+    }
+
+}

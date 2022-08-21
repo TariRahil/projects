@@ -1,0 +1,82 @@
+package servlets;
+
+import common.Connection;
+import org.json.JSONObject;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.*;
+import javax.ws.rs.core.MediaType;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class LoginServlet extends HttpServlet {
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("views/login.jsp");
+        requestDispatcher.forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+       String name = req.getParameter("txtUserName");
+       String password = req.getParameter("txtPassword");
+
+       BufferedReader bufferedReader = Connection.serviceConnection("userAccountGetByUsernamePassword/"+name+"/"+password,"GET");
+
+        if (bufferedReader.readLine()!=null){
+           /* HttpSession oldSession = req.getSession(false);
+            if (oldSession != null) {
+                oldSession.invalidate();
+            }
+            //generate a new session
+            HttpSession newSession = req.getSession(true);
+
+            //setting session to expiry in 5 mins
+            newSession.setMaxInactiveInterval(5*60);
+
+            Cookie message = new Cookie("message", "Welcome");
+            resp.addCookie(message);*/
+
+            HttpSession session = req.getSession();
+            String resp1;
+            String s="{";
+
+            while ((resp1=bufferedReader.readLine())!=null){
+                s += resp1;
+            }
+
+            JSONObject jsonObject=new JSONObject(s);
+
+            System.out.println("FN="+jsonObject.getString("firstName"));
+            session.setAttribute("FullName",jsonObject.getString("firstName"));
+            resp.sendRedirect(req.getContextPath()+"/home");
+
+        }
+        else{
+
+
+            RequestDispatcher rd = getServletContext().getRequestDispatcher("views/login.jsp");
+            PrintWriter out = resp.getWriter();
+            out.println("<font color=red>Either username or password is wrong.</font>");
+            rd.include(req, resp);
+
+
+           // resp.sendRedirect("views/login.jsp");
+
+        }
+
+
+
+
+
+
+    }
+
+}
